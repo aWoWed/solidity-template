@@ -26,17 +26,17 @@ npx solhint 'contracts/**/*.sol' --fix
 
 To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Fantom_Testnet.
 
-In order to get FTM(native token of fantomTestnet) follow this [faucet](https://faucet.fantom.network/) link
+In order to get FTM(native token of fantomTestnet) follow this [faucet link](https://faucet.fantom.network/)
 
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your node URL (eg from Alchemy), and the mnemonic of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your node URL (eg from Alchemy), and the mnemonic of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract, input the `YOUR_GREETING` value to deploy your contract. If it is empty the default value `Hello world!` will be inserted:
 
 ```shell
 hardhat run deploy-greeter --network fantom_testnet --greeting YOUR_GREETING
 ```
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS`, also you should import your constructor value GREETING in this command:
+Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS`, also you should import your constructor value `GREETING` in this command:
 ```shell
 npx hardhat verify --network fantom_testnet DEPLOYED_CONTRACT_ADDRESS 'GREETING'
 ```
 
-Here is a deployed instance of the contract on fantomTestnetScan [0xDCf95202dEB5e8915A1c967e8aDBa57df1531DA4](https://testnet.ftmscan.com/address/0xDCf95202dEB5e8915A1c967e8aDBa57df1531DA4)
+Here is a deployed instance of the contract on [fantomTestnetScan 0xDCf95202dEB5e8915A1c967e8aDBa57df1531DA4](https://testnet.ftmscan.com/address/0xDCf95202dEB5e8915A1c967e8aDBa57df1531DA4)
