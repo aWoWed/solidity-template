@@ -3,7 +3,9 @@ import { EnvVariables } from './types';
 export const getEnvVariables = (): EnvVariables => ({
   INFURA_API_KEY: process.env.INFURA_API_KEY || '',
   MNEMONIC: process.env.MNEMONIC || '',
-  MNEMONIC_DEV: process.env.MNEMONIC_DEV || 'story lemon benefit fix decline axis purchase ribbon tattoo aim suggest diagram',
+  MNEMONIC_DEV:
+    process.env.MNEMONIC_DEV ||
+    'story lemon benefit fix decline axis purchase ribbon tattoo aim suggest diagram',
   FORKING_NETWORK: process.env.FORKING_NETWORK || '',
   ARBISCAN_API_KEY: process.env.ARBISCAN_API_KEY || '',
   BSCSCAN_API_KEY: process.env.BSCSCAN_API_KEY || '',
