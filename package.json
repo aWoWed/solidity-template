@@ -35,8 +35,10 @@
     "format:ts:fix": "prettier \"**/*.{js,ts,json}\" --write",
     "format:sol": "prettier \"contracts/**/*.sol\" --check",
     "format:sol:fix": "prettier \"contracts/**/*.sol\" --write",
-    "codestyle": "yarn lint:sol && yarn format:sol && yarn lint:ts && yarn format:ts",
-    "codestyle:fix": "yarn lint:sol:fix && yarn format:sol:fix && yarn lint:ts:fix && yarn format:ts:fix"
+    "format:yml": "prettier \"**/*.{yml,yaml}\" --check",
+    "format:yml:fix": "prettier \"**/*.{yml,yaml}\" --write",
+    "codestyle": "yarn lint:sol && yarn format:sol && yarn lint:ts && yarn format:ts && yarn format:yml",
+    "codestyle:fix": "yarn lint:sol:fix && yarn format:sol:fix && yarn lint:ts:fix && yarn format:ts:fix && yarn format:yml:fix"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
