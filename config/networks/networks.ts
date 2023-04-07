@@ -6,7 +6,8 @@ import { NetworkConfig } from './types';
 
 import { getEnvVariables } from '../env';
 
-const { INFURA_API_KEY, MNEMONIC, MNEMONIC_DEV } = getEnvVariables();
+const { INFURA_API_KEY, MNEMONIC, MNEMONIC_DEV, PRIVATE_KEY } =
+  getEnvVariables();
 
 export const mnemonics: NetworkConfig<string> = {
   dev: MNEMONIC,
@@ -149,17 +150,23 @@ export const initialBasesFeePerGas: NetworkConfig<number | undefined> = {
   ultron_testnet: undefined,
 };
 
-export const getBaseNetworkConfig = (network: string): NetworkUserConfig => ({
-  accounts: {
-    mnemonic: mnemonics.dev,
-  },
-  chainId: chainIds[network],
-  gas: gases[network],
-  gasPrice: gasPrices[network],
-  blockGasLimit: blockGasLimits[network],
-  timeout: timeouts[network],
-  initialBaseFeePerGas: initialBasesFeePerGas[network],
-});
+export const getBaseNetworkConfig = (network: string): NetworkUserConfig => {
+  const networkUserConfig: NetworkUserConfig = {
+    accounts: {
+      mnemonic: mnemonics.dev,
+    },
+    chainId: chainIds[network],
+    gas: gases[network],
+    gasPrice: gasPrices[network],
+    blockGasLimit: blockGasLimits[network],
+    timeout: timeouts[network],
+    initialBaseFeePerGas: initialBasesFeePerGas[network],
+  };
+  if (PRIVATE_KEY !== undefined && PRIVATE_KEY !== null && PRIVATE_KEY !== '') {
+    networkUserConfig.accounts = [PRIVATE_KEY];
+  }
+  return networkUserConfig;
+};
 
 export const getNetworkConfig = (network: string): NetworkUserConfig => ({
   ...getBaseNetworkConfig(network),

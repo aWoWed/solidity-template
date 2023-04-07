@@ -2,6 +2,7 @@ export type EnvVariables = {
   readonly INFURA_API_KEY?: string;
   readonly MNEMONIC: string;
   readonly MNEMONIC_DEV: string;
+  readonly PRIVATE_KEY: string;
   readonly FORKING_NETWORK?: string;
   readonly ARBISCAN_API_KEY?: string;
   readonly BSCSCAN_API_KEY?: string;

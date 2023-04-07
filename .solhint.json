@@ -2,6 +2,7 @@
   "extends": "solhint:recommended",
   "plugins": ["prettier"],
   "rules": {
+    "no-console": "warn",
     "no-unused-vars": "error",
     "code-complexity": ["error", 8],
     "compiler-version": ["error", ">=0.8.0"],
