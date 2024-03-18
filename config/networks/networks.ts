@@ -39,7 +39,7 @@ export const gasPrices: NetworkConfig<number> = {
   avalanche_fuji: 8 * gwei,
   bsc: 5 * gwei,
   bsc_testnet: 5 * gwei,
-  ethereum: 10 * gwei,
+  ethereum: 100 * gwei,
   fantom: 15 * gwei,
   fantom_testnet: 10 * gwei,
   goerli: 5 * gwei,
@@ -60,12 +60,12 @@ export const rpcUrls: NetworkConfig<string> = {
   bsc_testnet: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
   ethereum: INFURA_API_KEY
     ? `https://eth-mainnet.alchemyapi.io/v2/${INFURA_API_KEY}`
-    : `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
+    : `https://eth.llamarpc.com`,
   fantom: 'https://rpc.ftm.tools/',
   fantom_testnet: 'https://rpc.testnet.fantom.network/',
   goerli: INFURA_API_KEY
     ? `https://eth-goerli.alchemyapi.io/v2/${INFURA_API_KEY}`
-    : `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
+    : `https://rpc.ankr.com/eth_goerli`,
   hardhat: 'http://localhost:8545',
   optimism: 'https://mainnet.optimism.io',
   polygon: 'https://polygon-rpc.com',
