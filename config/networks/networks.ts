@@ -37,7 +37,7 @@ export const gasPrices: NetworkConfig<number> = {
   arbitrum: 10 * gwei,
   avalanche: 8 * gwei,
   avalanche_fuji: 8 * gwei,
-  bsc: 5 * gwei,
+  bsc: 1 * gwei,
   bsc_testnet: 5 * gwei,
   ethereum: 100 * gwei,
   fantom: 15 * gwei,
@@ -48,16 +48,16 @@ export const gasPrices: NetworkConfig<number> = {
   optimism: 10 * gwei,
   polygon: 15 * gwei,
   polygon_mumbai: 15 * gwei,
-  ultron: 1 * gwei,
-  ultron_testnet: 1 * gwei,
+  ultron: 20 * gwei,
+  ultron_testnet: 10 * gwei,
 };
 
 export const rpcUrls: NetworkConfig<string> = {
   arbitrum: 'https://arb1.arbitrum.io/rpc',
   avalanche: 'https://api.avax.network/ext/bc/C/rpc',
   avalanche_fuji: 'https://api.avax-test.network/ext/bc/C/rpc',
-  bsc: 'https://bsc-dataseed1.binance.org',
-  bsc_testnet: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+  bsc: 'https://binance.llamarpc.com',
+  bsc_testnet: 'https://bsc-testnet-rpc.publicnode.com',
   ethereum: INFURA_API_KEY
     ? `https://eth-mainnet.alchemyapi.io/v2/${INFURA_API_KEY}`
     : `https://eth.llamarpc.com`,
