@@ -1,13 +1,15 @@
 import { task, types } from 'hardhat/config';
 import '@nomiclabs/hardhat-ethers';
 
-import { logDeployment, preAction, delay } from './functions';
 import {
   TASK_DEPLOY_GREETER,
   TASK_GET_GREETING,
   TASK_SET_GREETING,
   TASK_THROW_GREETER_ERROR,
 } from './task-names';
+
+import { writeNetworkFile } from '../common/addresses/network-file';
+import { logDeployment, preAction, delay } from '../common/functions';
 
 task(TASK_DEPLOY_GREETER)
   .addParam('greeting', 'contract greeting', 'Hello world!', types.string)
@@ -24,6 +26,8 @@ task(TASK_DEPLOY_GREETER)
       ['Address', greeter.address],
       ['Deployer', deployer.address],
     );
+
+    writeNetworkFile(hre.network.name, greeter.address);
   });
 
 task(TASK_GET_GREETING)
