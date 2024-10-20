@@ -1,4 +1,5 @@
 import { writeFileSync, existsSync, readFileSync } from 'fs';
+import { ContractNameAddress } from '../types';
 
 const FILE_PATH = (network: string): string =>
   `./tasks/common/addresses/${network}.ts`;
@@ -11,7 +12,15 @@ export const writeNetworkFile = (network: string, greeter: string): void =>
     flag: 'w',
   });
 
-export const getAddresses = (network: string): string[] => {
+const findName = (name: string): string => {
+  if (name === 'GREETER') {
+    return 'Greeter';
+  } else {
+    return '';
+  }
+};
+
+export const getAddresses = (network: string): ContractNameAddress[] => {
   if (!existsSync(FILE_PATH(network))) {
     throw new Error(`Contracts not deployed on ${network}`);
   }
@@ -19,11 +28,15 @@ export const getAddresses = (network: string): string[] => {
   const str = readFileSync(FILE_PATH(network)).toString();
   const strArray = str.split('\n');
   for (let i = 0; i < strArray.length - 1; i++) {
-    const elem = strArray[i].slice(
+    const elemName = strArray[i]
+      .slice(strArray[i].indexOf('st') + 'st'.length, strArray[i].indexOf('='))
+      .trim();
+    const name = findName(elemName);
+    const elemAddress = strArray[i].slice(
       strArray[i].indexOf('0'),
       strArray[i].indexOf(';') - 1,
     );
-    array.push(elem);
+    array.push({ name: name, address: elemAddress });
   }
   console.log(array);
   return array;
