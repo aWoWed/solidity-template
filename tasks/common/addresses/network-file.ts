@@ -1,4 +1,5 @@
 import { writeFileSync, existsSync, readFileSync } from 'fs';
+
 import { ContractNameAddress } from '../types';
 
 const FILE_PATH = (network: string): string =>

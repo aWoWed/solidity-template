@@ -3,6 +3,9 @@ export type EnvVariables = {
   readonly MNEMONIC: string;
   readonly MNEMONIC_DEV: string;
   readonly PRIVATE_KEY: string;
+  readonly TENDERLY_USERNAME: string;
+  readonly TENDERLY_PROJECT: string;
+  readonly TENDERLY_RPC: string;
   readonly FORKING_NETWORK?: string;
   readonly ARBISCAN_API_KEY?: string;
   readonly BSCSCAN_API_KEY?: string;

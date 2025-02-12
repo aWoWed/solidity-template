@@ -1,11 +1,11 @@
 import * as dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/config';
-
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-etherscan';
 import '@nomiclabs/hardhat-waffle';
 import 'hardhat-contract-sizer';
 import 'hardhat-gas-reporter';
+import '@tenderly/hardhat-tenderly';
 import '@typechain/hardhat';
 import 'solidity-coverage';
 
@@ -21,6 +21,8 @@ dotenv.config();
 
 const {
   FORKING_NETWORK,
+  TENDERLY_USERNAME,
+  TENDERLY_PROJECT,
   ARBISCAN_API_KEY,
   BSCSCAN_API_KEY,
   ETHERSCAN_API_KEY,
@@ -85,6 +87,8 @@ const config: HardhatUserConfig = {
     optimism: getNetworkConfig('optimism'),
     polygon: getNetworkConfig('polygon'),
     polygon_mumbai: getNetworkConfig('polygon_mumbai'),
+    sepolia: getNetworkConfig('sepolia'),
+    tenderly: getNetworkConfig('tenderly'),
     ultron: getNetworkConfig('ultron'),
     ultron_testnet: getNetworkConfig('ultron_testnet'),
   },
@@ -106,6 +110,11 @@ const config: HardhatUserConfig = {
         },
       },
     ],
+  },
+  tenderly: {
+    username: TENDERLY_USERNAME,
+    project: TENDERLY_PROJECT,
+    privateVerification: false,
   },
 };
 

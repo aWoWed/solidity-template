@@ -6,7 +6,7 @@ import { NetworkConfig } from './types';
 
 import { getEnvVariables } from '../env';
 
-const { INFURA_API_KEY, MNEMONIC, MNEMONIC_DEV, PRIVATE_KEY } =
+const { INFURA_API_KEY, MNEMONIC, MNEMONIC_DEV, PRIVATE_KEY, TENDERLY_RPC } =
   getEnvVariables();
 
 export const mnemonics: NetworkConfig<string> = {
@@ -29,6 +29,8 @@ export const chainIds: NetworkConfig<number> = {
   optimism: 10,
   polygon: 137,
   polygon_mumbai: 80001,
+  sepolia: 11155111,
+  tenderly: 11155111,
   ultron: 1231,
   ultron_testnet: 1230,
 };
@@ -48,6 +50,8 @@ export const gasPrices: NetworkConfig<number> = {
   optimism: 10 * gwei,
   polygon: 15 * gwei,
   polygon_mumbai: 15 * gwei,
+  sepolia: 10 * gwei,
+  tenderly: 10 * gwei,
   ultron: 20 * gwei,
   ultron_testnet: 10 * gwei,
 };
@@ -70,6 +74,10 @@ export const rpcUrls: NetworkConfig<string> = {
   optimism: 'https://mainnet.optimism.io',
   polygon: 'https://polygon-rpc.com',
   polygon_mumbai: 'https://rpc-mumbai.matic.today',
+  sepolia: INFURA_API_KEY
+    ? `https://eth-sepolia.g.alchemy.com/v2/${INFURA_API_KEY}`
+    : 'https://ethereum-sepolia-rpc.publicnode.com',
+  tenderly: TENDERLY_RPC,
   ultron: 'https://ultron-rpc.net',
   ultron_testnet: 'https://ultron-dev.io',
 };
@@ -89,6 +97,8 @@ export const gases: NetworkConfig<number | undefined> = {
   optimism: undefined,
   polygon: undefined,
   polygon_mumbai: undefined,
+  sepolia: undefined,
+  tenderly: undefined,
   ultron: undefined,
   ultron_testnet: undefined,
 };
@@ -108,6 +118,8 @@ export const timeouts: NetworkConfig<number | undefined> = {
   optimism: undefined,
   polygon: undefined,
   polygon_mumbai: undefined,
+  sepolia: undefined,
+  tenderly: undefined,
   ultron: undefined,
   ultron_testnet: undefined,
 };
@@ -127,6 +139,8 @@ export const blockGasLimits: NetworkConfig<number | undefined> = {
   optimism: undefined,
   polygon: undefined,
   polygon_mumbai: undefined,
+  sepolia: undefined,
+  tenderly: undefined,
   ultron: undefined,
   ultron_testnet: undefined,
 };
@@ -146,6 +160,8 @@ export const initialBasesFeePerGas: NetworkConfig<number | undefined> = {
   optimism: undefined,
   polygon: undefined,
   polygon_mumbai: undefined,
+  sepolia: undefined,
+  tenderly: undefined,
   ultron: undefined,
   ultron_testnet: undefined,
 };
